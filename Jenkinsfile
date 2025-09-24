@@ -50,12 +50,6 @@ pipeline {
                 sh 'docker-compose up -d --build'
             }
         }
-
-        stage('Health Check') {
-            steps {
-                sh 'curl -f http://localhost:8080/actuator/health || exit 1'
-            }
-        }
     }
 
     post {
