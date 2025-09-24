@@ -12,12 +12,6 @@ pipeline {
 
     stages {
 
-//         stage('Checkout') {
-//             steps {
-//                 git branch: 'main', url: 'https://github.com/nikhil-3210/sit753task7.3hd.git'
-//             }
-//         }
-
         stage('Start PostgreSQL') {
             steps {
                 sh 'docker-compose -f docker-compose.yml up -d postgres'
@@ -30,8 +24,6 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-
-
 
         stage('Test') {
             steps {
