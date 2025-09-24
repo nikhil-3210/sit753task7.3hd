@@ -12,11 +12,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/nikhil-3210/sit753task7.3hd.git'
-            }
-        }
+//         stage('Checkout') {
+//             steps {
+//                 git branch: 'main', url: 'https://github.com/nikhil-3210/sit753task7.3hd.git'
+//             }
+//         }
 
         stage('Start PostgreSQL') {
             steps {
