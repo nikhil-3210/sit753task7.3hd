@@ -1,9 +1,9 @@
 server:
-  port: 8082
+  port: 8085
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres:5432/taskdb}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/taskdb}
     username: ${SPRING_DATASOURCE_USERNAME:taskuser}
     password: ${SPRING_DATASOURCE_PASSWORD:taskpass}
   jpa:

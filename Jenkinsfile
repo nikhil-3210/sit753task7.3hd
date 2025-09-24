@@ -54,14 +54,14 @@ pipeline {
 
     post {
         always {
-            echo '🧹 Cleaning up...'
+            echo 'Cleaning up...'
             sh 'docker-compose -f docker-compose.yml down || true'
         }
         success {
-            echo '✅ Pipeline completed successfully!'
+            echo 'pipeline completed successfully!'
         }
         failure {
-            echo '❌ Pipeline failed!'
+            echo 'Pipeline failed!'
         }
     }
 }

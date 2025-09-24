@@ -2,7 +2,6 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-# Install JDK, Maven, curl, unzip, Trivy
 RUN apt-get update && apt-get install -y \
     maven \
     openjdk-17-jdk \
@@ -20,11 +19,9 @@ RUN apt-get update && apt-get install -y \
     && ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose \
     && curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
 
-# Add Jenkins plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
-# Add jenkins user to docker group (if needed)
 RUN usermod -aG docker jenkins
 
 USER jenkins
