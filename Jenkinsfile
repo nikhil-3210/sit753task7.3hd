@@ -14,7 +14,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/nikhil-3210/sit753task7.3hd.git'
+                git branch: 'main', url: 'https://github.com/nikhil-3210/sit753task7.3hd.git'
             }
         }
 
