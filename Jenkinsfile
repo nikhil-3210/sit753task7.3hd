@@ -53,7 +53,7 @@ pipeline {
 
         stage('Health Check') {
             steps {
-                sh 'curl -f http://localhost:8080/actuator/health || exit 1'
+                sh 'curl -f http://task-management-api:8080/actuator/health || exit 1'
             }
         }
     }
