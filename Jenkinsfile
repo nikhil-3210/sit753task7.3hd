@@ -18,11 +18,20 @@ pipeline {
             }
         }
 
+        stage('Start PostgreSQL') {
+            steps {
+                sh 'docker-compose -f docker-compose.yml up -d postgres'
+                sleep(time: 10, unit: 'SECONDS')
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'mvn clean package -DskipTests'
             }
         }
+
+
 
         stage('Test') {
             steps {
@@ -59,8 +68,8 @@ pipeline {
 
     post {
         always {
-            echo 'Cleaning up...'
-            sh 'docker-compose down || true'
+            echo '🧹 Cleaning up...'
+            sh 'docker-compose -f docker-compose.yml down || true'
         }
         success {
             echo '✅ Pipeline completed successfully!'
